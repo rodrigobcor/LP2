@@ -8,6 +8,7 @@ public class RectApp {
 		r1.print();
 		r1.area();
 		r1.drag(5,5);
+		r1.print();
 	}
 }
 
