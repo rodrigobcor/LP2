@@ -1,6 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.geom.*;
+import java.awt.Color.*;
 
 class PaintApp {
     public static void main (String[] args) {
@@ -32,9 +34,8 @@ class PaintFrame extends JFrame {
 }
 
 class Rect {
-    int x, y;
-    int w, h;
-
+	int x, y;
+	int w, h;
     Rect (int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
@@ -49,6 +50,8 @@ class Rect {
 
     void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+	g2d.setPaint(Color.red);
+	g2d.setBackground(Color.red);
         g2d.drawRect(this.x,this.y, this.w,this.h);
     }
 }
