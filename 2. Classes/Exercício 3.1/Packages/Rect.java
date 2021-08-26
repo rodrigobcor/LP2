@@ -13,7 +13,7 @@ public class Rect {
         this.h = h;
     }
 
-    public void print () {
+    private void print () {
         System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
             this.w, this.h, this.x, this.y);
     }
