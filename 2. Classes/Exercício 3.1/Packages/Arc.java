@@ -16,7 +16,7 @@ public class Arc {
         this.a2 = a2;
     }
 
-    private void print () {
+    public void print () {
         System.out.format("Circulo de tamanho (%d,%d) na posicao (%d,%d).\n",
             this.w, this.h, this.x, this.y);
     }
