@@ -61,7 +61,7 @@ class Rect {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(this.ccolor);
         g2d.drawRect(this.x,this.y, this.w,this.h);
-	   g2d.setColor(this.bcolor);
+	g2d.setColor(this.bcolor);
         g2d.fillRect(this.x+1,this.y+1, this.w-1,this.h-1);
 
     }
