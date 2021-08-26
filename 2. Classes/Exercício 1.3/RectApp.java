@@ -28,7 +28,6 @@ class Rect {
 			this.w, this.h, this.x, this.y);
 	}
 	int area () {
-		System.out.format("A area e %d\n", this.a);
 		return a;
 	}
 	void drag (int dx, int dy) {
