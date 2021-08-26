@@ -3,8 +3,8 @@ package figures;
 import java.awt.*;
 
 public class Circle {
-    int x, y;
-    int w, h;
+    private int x, y;
+    private int w, h;
 
     public Circle (int x, int y, int w, int h) {
         this.x = x;
