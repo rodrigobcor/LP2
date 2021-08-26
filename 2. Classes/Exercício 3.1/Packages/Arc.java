@@ -3,9 +3,9 @@ package figures;
 import java.awt.*;
 
 public class Arc {
-    int x, y;
-    int w, h;
-    int a1, a2;
+    private int x, y;
+    private int w, h;
+    private int a1, a2;
 
     public Arc (int x, int y, int w, int h, int a1, int a2) {
         this.x = x;
