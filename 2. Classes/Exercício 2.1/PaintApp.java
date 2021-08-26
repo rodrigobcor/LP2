@@ -24,9 +24,9 @@ class PaintFrame extends JFrame {
         );
         this.setTitle("Painting Figures");
         this.setSize(350, 350);
-        this.r1 = new Rect(50,50, 100,30, Color.blue);
-        this.r2 = new Rect(50,150, 100,30, Color.red);
-        this.r3 = new Rect(50,250, 100,30, Color.green);
+        this.r1 = new Rect(50,50, 100,30, Color.black, Color.blue);
+        this.r2 = new Rect(50,150, 100,30, Color.black, Color.red);
+        this.r3 = new Rect(50,250, 100,30, Color.black, Color.green);
     }
 
     public void paint (Graphics g) {
@@ -38,16 +38,18 @@ class PaintFrame extends JFrame {
 }
 
 class Rect {
-    int x, y;
-    int w, h;
-    Color color;
+	int x, y;
+	int w, h;
+	Color ccolor;
+	Color bcolor;
 
-    Rect (int x, int y, int w, int h, Color color) {
+    Rect (int x, int y, int w, int h, Color ccolor, Color bcolor) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
-        this.color = color;
+        this.ccolor = ccolor;
+	this.bcolor = bcolor;
     }
 
     void print () {
@@ -57,8 +59,9 @@ class Rect {
 
     void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(this.color);
+        g2d.setColor(this.ccolor);
         g2d.drawRect(this.x,this.y, this.w,this.h);
+	    g2d.setColor(this.bcolor);
         g2d.fillRect(this.x,this.y, this.w,this.h);
 
     }
