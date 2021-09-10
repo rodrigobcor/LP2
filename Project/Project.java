@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import figures.Rect;
 import figures.Ellipse;
+import figures.Arc;
+import figures.Circle;
 import figures.Figure;
 
 class ListAppFigures {
@@ -34,11 +36,17 @@ class ListFrame extends JFrame {
                     int y = rand.nextInt(350);
                     int w = rand.nextInt(50);
                     int h = rand.nextInt(50);
+                    int a1 = rand.nextInt(180);
+                    int a2 = rand.nextInt(180);
                     if (evt.getKeyChar() == 'r') {
                         Rect r = new Rect(x,y, w,h);
                         figs.add(r);
                     } else if (evt.getKeyChar() == 'e') {
                         figs.add(new Ellipse(x,y, w,h));
+                    } else if (evt.getKeyChar() == 'a') {
+                        figs.add(new Arc(x,y, w,h, a1,a2));
+                    } else if (evt.getKeyChar() == 'c') {
+                        figs.add(new Circle(x,y, w,w));
                     }
                     repaint();
                 }
