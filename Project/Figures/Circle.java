@@ -3,18 +3,13 @@ package figures;
 import java.awt.*;
 
 public class Circle extends Figure {
-    private int x, y;
-    private int w, h;
-	private Color ccolor;
-    private Color bcolor;
+	//private Color ccolor;
+    //private Color bcolor;
 
     public Circle (int x, int y, int w, int h) {
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
-        this.ccolor = ccolor;
-        this.bcolor = bcolor;
+        super(x,y,w,h);
+        //this.ccolor = ccolor;
+        //this.bcolor = bcolor;
     }
 
     public void print () {
@@ -24,7 +19,7 @@ public class Circle extends Figure {
 
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(this.ccolor);
+        //g2d.setColor(this.ccolor);
         g2d.drawOval(this.x,this.y, this.w,this.h);
         //g2d.setColor(this.bcolor);
         //g2d.fillOval(this.x,this.y, this.w,this.h);
