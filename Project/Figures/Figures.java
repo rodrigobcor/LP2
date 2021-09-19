@@ -1,19 +1,19 @@
 package figures;
 
-import java.awt.*;
+import java.awt.Graphics;
 
-public class Rect extends Figure {
-    public Rect (int x, int y, int w, int h) {
-        super(x,y,w,h);
+public abstract class Figure {
+    public int x, y;
+    public int w, h;
+    public int a1,a2;
+
+    public Figure (int x, int y, int w, int h) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
     }
 
-    public void print () {
-        System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
-            this.w, this.h, this.x, this.y);
-    }
-
-    public void paint (Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.drawRect(this.x,this.y, this.w,this.h);
-    }
+    public abstract void paint (Graphics g);
+    public abstract void print ();
 }
