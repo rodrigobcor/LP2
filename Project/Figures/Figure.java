@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Ellipse2D.Double;
 
 public abstract class Figure {
     public int x, y;
