@@ -26,8 +26,8 @@ public abstract class Figure {
     }
 
     public void drag (int dx, int dy) {
-        this.x += dx;
-        this.y += dy;
+        this.x = dx;
+        this.y = dy;
     }
 
     public abstract void paint (Graphics g);
