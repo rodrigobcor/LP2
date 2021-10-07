@@ -2,7 +2,7 @@ Comandos:
 
 - A: Cria um Arco
 - E: Cria uma Elipse
-- C: Cria um Círculo
+- T: Cria um Triângulo
 - R: Cria um Retângulo
 
 - Click com o botão esquerdo do mouse: coloca a figura em foco

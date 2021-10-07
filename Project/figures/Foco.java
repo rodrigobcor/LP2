@@ -2,22 +2,9 @@ package figures;
 
 import java.awt.*;
 
-public class Foco {
-    int x,y;
-    int w,h;
-    Color ccolor;
-    
+public class Foco extends Figure {
     public Foco (int x, int y, int w, int h, Color ccolor) {
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
-        this.ccolor = ccolor;
-    }
-    
-    public void print () {
-        System.out.format("Retangulo de tamanho (%d,%d) na posicao (%d,%d).\n",
-            this.w, this.h, this.x, this.y);
+        super(x,y,w,h,ccolor,null);
     }
 
     public void paint (Graphics g) {
