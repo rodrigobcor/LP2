@@ -12,8 +12,8 @@ public class Arc extends Figure {
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(this.ccolor);
-        g2d.drawArc(this.x,this.y, this.w,this.h, this.a1,this.a2);
+        g2d.drawArc(this.x,this.y, this.w,this.w, this.a1,this.a2);
         g2d.setColor(this.bcolor);
-        g2d.fillArc(this.x,this.y, this.w,this.h, this.a1,this.a2);
+        g2d.fillArc(this.x,this.y, this.w,this.w, this.a1,this.a2);
     }
 }
