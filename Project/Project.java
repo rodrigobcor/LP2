@@ -57,7 +57,7 @@ class ListFrame extends JFrame {
                     } else if (evt.getKeyChar() == 'e') {
                         figs.add(new Ellipse(x,y, w,h, ccolor,bcolor));
                     } else if (evt.getKeyChar() == 'a') {
-                        figs.add(new Arc(x,y, w,h, a1,a2, ccolor,bcolor));
+                        figs.add(new Arc(x,y, w,w, a1,a2, ccolor,bcolor));
                     } else if (evt.getKeyChar() == 't') {
                         figs.add(new Triangle(x,y, w,h, ccolor,bcolor));
                     } int keyCode = evt.getKeyCode();
