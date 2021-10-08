@@ -9,8 +9,8 @@ public class Triangle extends Figure {
 
     public void paint (Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        int [] tx = {this.x, this.x+(this.w/2), this.x-(this.w/2)};
-        int [] ty = {this.y-(this.h/2), this.y+(this.h/2), this.y+(this.h/2)};
+        int [] tx = {this.x+(this.w/2), this.x+this.w, this.x};
+        int [] ty = {this.y, this.y+this.h, this.y+this.h};
         g2d.setColor(this.ccolor);
         g2d.drawPolygon(tx, ty, 3);
         g2d.setColor(this.bcolor);

@@ -2,9 +2,17 @@ package figures;
 
 import java.awt.*;
 
-public class Foco extends Figure {
+public class Foco {
+    int x,y;
+    int w,h;
+    Color ccolor;
+    
     public Foco (int x, int y, int w, int h, Color ccolor) {
-        super(x,y,w,h,ccolor,null);
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.ccolor = ccolor;
     }
 
     public void paint (Graphics g) {

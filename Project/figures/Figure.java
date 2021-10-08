@@ -2,10 +2,6 @@ package figures;
 
 import java.awt.Graphics;
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Ellipse2D.Double;
 
 public abstract class Figure {
     public int x, y;
@@ -19,8 +15,6 @@ public abstract class Figure {
         this.y = y;
         this.w = w;
         this.h = h;
-        this.a1 = a1;
-        this.a2 = a2;
         this.ccolor = ccolor;
         this.bcolor = bcolor;
     }
