@@ -203,7 +203,7 @@ void main (void) {
         (Figure*) arc_new(350,300,130,130, 10,40),
     };
 
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<8; i++) {
         figs[i]->vtable->print(figs[i]);
     }
 
