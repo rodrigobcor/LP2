@@ -11,7 +11,7 @@ import figures.Triangle;
 import figures.Figure;
 import figures.Foco;
 
-class Project {
+class ListAppFigures {
     public static void main (String[] args) {
         ListFrame frame = new ListFrame();
         frame.setVisible(true);
