@@ -50,13 +50,17 @@ class ListFrame extends JFrame {
 				Color ccolor = new Color(red, green, blue);
 				Color bcolor = new Color(red, green, blue);
 				if (evt.getKeyChar() == 'r') {
-					figs.add(new Rect(x, y, w, h, ccolor, bcolor));
+					Rect r = new Rect(x, y, w, h, ccolor, bcolor);
+					figs.add(r);
 				} else if (evt.getKeyChar() == 'e') {
-					figs.add(new Ellipse(x, y, w, h, ccolor, bcolor));
+					Ellipse e = new Ellipse(x, y, w, h, ccolor, bcolor);
+					figs.add(e);
 				} else if (evt.getKeyChar() == 'a') {
-					figs.add(new Arc(x, y, w, w, a1, a2, ccolor, bcolor));
+					Arc a = new Arc(x, y, w, w, a1, a2, ccolor, bcolor);
+					figs.add(a);
 				} else if (evt.getKeyChar() == 't') {
-					figs.add(new Triangle(x, y, w, h, ccolor, bcolor));
+					Triangle t = new Triangle(x, y, w, h, ccolor, bcolor);
+					figs.add(t);
 				}
 				int keyCode = evt.getKeyCode();
 				switch (keyCode) {
@@ -102,8 +106,8 @@ class ListFrame extends JFrame {
 
 		this.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent evt) {
-				int mx = MouseInfo.getPointerInfo().getLocation().x;
-				int my = MouseInfo.getPointerInfo().getLocation().y;
+				int mx = evt.getX();
+				int my = evt.getY();
 				for (Figure fig : figs) {
 					if (fig.clicked(mx, my)) {
 						focus = fig;
