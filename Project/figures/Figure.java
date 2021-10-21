@@ -7,7 +7,6 @@ public abstract class Figure implements IVisible {
 	public int x, y;
 	public int w, h;
 	public int a1, a2;
-//	Color ccolor;
 	Color bcolor;
 
 	public Figure(int x, int y, int w, int h, Color bcolor) {
@@ -15,7 +14,6 @@ public abstract class Figure implements IVisible {
 		this.y = y;
 		this.w = w;
 		this.h = h;
-//		this.ccolor = ccolor;
 		this.bcolor = bcolor;
 	}
 
