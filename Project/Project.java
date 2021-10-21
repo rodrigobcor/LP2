@@ -9,7 +9,6 @@ import figures.Ellipse;
 import figures.Arc;
 import figures.Triangle;
 import figures.Figure;
-import figures.Foco;
 
 class Project {
 	public static void main(String[] args) {
@@ -26,7 +25,6 @@ class ListFrame extends JFrame {
 	ArrayList<Figure> figs = new ArrayList<Figure>();
 	Random rand = new Random();
 	Figure focus = null;
-	Foco f1;
 	int mx, my;
 
 	ListFrame() {
@@ -47,19 +45,18 @@ class ListFrame extends JFrame {
 				int red = rand.nextInt(255);
 				int green = rand.nextInt(255);
 				int blue = rand.nextInt(255);
-				Color ccolor = new Color(red, green, blue);
 				Color bcolor = new Color(red, green, blue);
 				if (evt.getKeyChar() == 'r') {
-					Rect r = new Rect(x, y, w, h, ccolor, bcolor);
+					Rect r = new Rect(x, y, w, h, bcolor);
 					figs.add(r);
 				} else if (evt.getKeyChar() == 'e') {
-					Ellipse e = new Ellipse(x, y, w, h, ccolor, bcolor);
+					Ellipse e = new Ellipse(x, y, w, h, bcolor);
 					figs.add(e);
 				} else if (evt.getKeyChar() == 'a') {
-					Arc a = new Arc(x, y, w, w, a1, a2, ccolor, bcolor);
+					Arc a = new Arc(x, y, w, w, a1, a2, bcolor);
 					figs.add(a);
 				} else if (evt.getKeyChar() == 't') {
-					Triangle t = new Triangle(x, y, w, h, ccolor, bcolor);
+					Triangle t = new Triangle(x, y, w, h, bcolor);
 					figs.add(t);
 				}
 				int keyCode = evt.getKeyCode();
@@ -156,8 +153,7 @@ class ListFrame extends JFrame {
 			fig.paint(g);
 		}
 		if (focus != null) {
-			Foco f1 = new Foco(focus.x - 1, focus.y - 1, focus.w + 2, focus.h + 2, Color.RED);
-			f1.paint(g);
+			focus.foco(g);
 		}
 	}
 }
