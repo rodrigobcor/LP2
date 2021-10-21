@@ -26,7 +26,7 @@ class ListFrame extends JFrame {
 	ArrayList<Figure> figs = new ArrayList<Figure>();
 	Random rand = new Random();
 	Figure focus = null;
-	Foco fc1;
+	Foco f1;
 	int mx, my;
 
 	ListFrame() {
@@ -65,12 +65,9 @@ class ListFrame extends JFrame {
 				int keyCode = evt.getKeyCode();
 				switch (keyCode) {
 				case KeyEvent.VK_DELETE:
-					for (Figure fig : figs) {
-						if (fig == focus) {
-							figs.remove(focus);
-							repaint();
-						}
-					}
+					figs.remove(focus);
+					focus = null;
+					repaint();
 					break;
 				case KeyEvent.VK_UP:
 					focus.y--;
@@ -108,21 +105,24 @@ class ListFrame extends JFrame {
 			public void mousePressed(MouseEvent evt) {
 				int mx = evt.getX();
 				int my = evt.getY();
+				int n = figs.size();
+				int i = 0;
 				for (Figure fig : figs) {
 					if (fig.clicked(mx, my)) {
 						focus = fig;
-						figs.add(focus);
-						figs.remove(fig);
-						repaint();
+						figs.set(i, figs.get(n - 1));
+						figs.set(n - 1, focus);
 					}
+					i++;
 				}
+				repaint();
 			}
 		});
 
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseDragged(MouseEvent evt) {
-				int dx = evt.getX() - mx - (focus.w / 2);
-				int dy = evt.getY() - my - (focus.h / 2);
+				int dx = evt.getX() - (focus.w / 2);
+				int dy = evt.getY() - (focus.h / 2);
 				focus.drag(dx, dy);
 				repaint();
 			}
@@ -154,15 +154,10 @@ class ListFrame extends JFrame {
 		super.paint(g);
 		for (Figure fig : this.figs) {
 			fig.paint(g);
-			if (fig == focus) {
-				int x = fig.x - 1;
-				int y = fig.y - 1;
-				int w = fig.w + 1;
-				int h = fig.h + 1;
-				Color ccolor = Color.RED;
-				this.fc1 = new Foco(x, y, w, h, ccolor);
-				this.fc1.paint(g);
-			}
+		}
+		if (focus != null) {
+			Foco f1 = new Foco(focus.x - 1, focus.y - 1, focus.w + 2, focus.h + 2, Color.RED);
+			f1.paint(g);
 		}
 	}
 }
