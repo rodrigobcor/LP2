@@ -6,6 +6,7 @@ Comandos:
 - R: Cria um Retângulo
 - C: Limpa a tela
 
+
 - Click com o botão esquerdo do mouse: coloca a figura em foco
 - Delete: deleta a figura
 - Arrastar com o botão esquerdo do mouse: arrasta a figura
