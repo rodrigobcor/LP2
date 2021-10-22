@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.Graphics;
@@ -28,8 +29,26 @@ class ListFrame extends JFrame {
 	int mx, my;
 
 	ListFrame() {
+
+		try {
+			FileInputStream f = new FileInputStream("proj.bin");
+			ObjectInputStream o = new ObjectInputStream(f);
+			this.figs = (ArrayList<Figure>) o.readObject();
+			o.close();
+		} catch (Exception x) {
+			System.out.println("ERRO!");
+		}
+
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
+				try {
+					FileOutputStream f = new FileOutputStream("proj.bin");
+					ObjectOutputStream o = new ObjectOutputStream(f);
+					o.writeObject(figs);
+					o.flush();
+					o.close();
+				} catch (Exception x) {
+				}
 				System.exit(0);
 			}
 		});
@@ -58,6 +77,9 @@ class ListFrame extends JFrame {
 				} else if (evt.getKeyChar() == 't') {
 					Triangle t = new Triangle(x, y, w, h, bcolor);
 					figs.add(t);
+				} else if (evt.getKeyChar() == 'c') {
+					focus = null;
+					figs.clear();
 				}
 				int keyCode = evt.getKeyCode();
 				switch (keyCode) {
