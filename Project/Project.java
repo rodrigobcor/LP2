@@ -140,10 +140,12 @@ class ListFrame extends JFrame {
 
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseDragged(MouseEvent evt) {
-				int dx = evt.getX() - (focus.w / 2);
-				int dy = evt.getY() - (focus.h / 2);
-				focus.drag(dx, dy);
-				repaint();
+				if (focus != null) {
+					int dx = evt.getX() - (focus.w / 2);
+					int dy = evt.getY() - (focus.h / 2);
+					focus.drag(dx, dy);
+					repaint();
+				}
 			}
 		});
 
@@ -172,10 +174,11 @@ class ListFrame extends JFrame {
 	public void paint(Graphics g) {
 		super.paint(g);
 		for (Figure fig : this.figs) {
-			fig.paint(g);
-		}
-		if (focus != null) {
-			focus.foco(g);
+			if (fig == focus) {
+				fig.paint(g, true);
+			} else {
+				fig.paint(g, false);
+			}
 		}
 	}
 }
