@@ -14,7 +14,7 @@ public abstract class Figure implements IVisible, Serializable {
 	public int a1, a2;
 	Color bcolor;
 
-	public Figure(int x, int y, int w, int h, Color bcolor) {
+	protected Figure(int x, int y, int w, int h, Color bcolor) { 
 		this.x = x;
 		this.y = y;
 		this.w = w;
@@ -29,5 +29,5 @@ public abstract class Figure implements IVisible, Serializable {
 
 	public boolean clicked(int x, int y) {
 		return (this.x <= x && x <= this.x + this.w && this.y <= y && y <= this.y + this.h);
-	}
+	} 
 }
