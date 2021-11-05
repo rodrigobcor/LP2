@@ -7,10 +7,10 @@ public class Button implements IVisible {
     static int DIM = 25;
     static int PAD = 4;
 
-    public  int    idx;
-    public Figure fig;
+    int    idx;
+    private Figure fig;
 
-    public Button (int idx, Figure fig) {
+    Button (int idx, Figure fig) {
         this.idx = idx;
         this.fig = fig;
         this.fig.x = PAD+SPC;
