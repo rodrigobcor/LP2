@@ -153,29 +153,30 @@ class ListFrame extends JFrame {
 					i++;
 				}
 				for (Button but : buts) {
-					if (but.clicked(mx, my-20)) {
+					if (but.clicked(mx, my)) {
 						focus_but = but;
-					} else {
-						if (focus_but != null && but.idx==0) {
-							Rect r = new Rect(mx-w/2, my-h/2, w, h, bcolor);
+						System.out.print(focus_but.idx);
+					} else if (focus_but != null) {
+						if (focus_but.idx == 0) {
+							Rect r = new Rect(mx - w / 2, my - h / 2, w, h, bcolor);
 							figs.add(r);
 							focus = r;
 							focus_but = null;
-//						} else if (focus_but != null && but.idx==1) {
-//							Ellipse e = new Ellipse(mx-w/2, my-h/2, w, h, bcolor);
-//							figs.add(e);
-//							focus = e;
-//							focus_but = null;
-//						} else if (focus_but != null && but.idx==1) {
-//							Arc a = new Arc(mx-w/2, my-h/2, w, w, a1, a2, bcolor);
-//							figs.add(a);
-//							focus = a;
-//							focus_but = null;
-//						} else if (focus_but != null && but.idx==1) {
-//							Triangle t = new Triangle(mx-w/2, my-h/2, w, h, bcolor);
-//							figs.add(t);
-//							focus = t;
-//							focus_but = null;
+						} else if (focus_but.idx == 1) {
+							Ellipse e = new Ellipse(mx - w / 2, my - h / 2, w, h, bcolor);
+							figs.add(e);
+							focus = e;
+							focus_but = null;
+						} else if (focus_but.idx == 2) {
+							Arc a = new Arc(mx - w / 2, my - h / 2, w, w, a1, a2, bcolor);
+							figs.add(a);
+							focus = a;
+							focus_but = null;
+						} else if (focus_but.idx == 3) {
+							Triangle t = new Triangle(mx - w / 2, my - h / 2, w, h, bcolor);
+							figs.add(t);
+							focus = t;
+							focus_but = null;
 						}
 					}
 				}
@@ -221,10 +222,10 @@ class ListFrame extends JFrame {
 	public void paint(Graphics g) {
 		super.paint(g);
 		for (Button but : this.buts) {
-			but.paint(g, but==focus_but);
+			but.paint(g, but == focus_but);
 		}
 		for (Figure fig : this.figs) {
-			fig.paint(g, fig==focus);
+			fig.paint(g, fig == focus);
 		}
 	}
 }
