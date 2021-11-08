@@ -14,6 +14,7 @@ Mouse:
 - Click com o botão esquerdo do mouse: coloca a figura em foco
 - Arrastar com o botão esquerdo do mouse: arrasta a figura
 - Rolagem do Mouse: aumenta/diminui o tamanho da figura
+- CTRL + Rolagem do mouse: aumenta o ângulo do arco se ele estiver em foco
 
 Menu:
 - Botão 1: Cria um Retângulo
