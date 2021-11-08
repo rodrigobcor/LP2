@@ -18,6 +18,10 @@ public class Button implements IVisible {
         this.fig.w = DIM-PAD*2;
         this.fig.h = DIM-PAD*2;
     }
+    
+    Button (int idx) {
+        this.idx = idx;
+    }
 
 	public boolean clicked (int x, int y) {
         return SPC<=x && x<=SPC+DIM && SPC+this.idx*DIM<=y && y<=SPC+this.idx*DIM+DIM;
@@ -32,6 +36,19 @@ public class Button implements IVisible {
         g2d.setColor(Color.BLACK);
         g2d.drawRect(SPC, SPC+this.idx*DIM, DIM, DIM);
 
-        this.fig.paint(g, false);
+        if (idx == 7) {
+        	g2d.setColor(Color.BLACK);
+        	g2d.fillRect(SPC+3, SPC+this.idx*DIM+10, DIM-5, DIM-20);
+        	g2d.fillRect(SPC+11, SPC+this.idx*DIM+3, DIM-21, DIM-5);
+        } else if (idx == 8) {
+        	g2d.setColor(Color.BLACK);
+        	g2d.fillRect(SPC+3, SPC+this.idx*DIM+10, DIM-5, DIM-20);
+        } else if (idx == 10) {
+        	g2d.setColor(Color.BLACK);
+        	g2d.drawLine(SPC, SPC+this.idx*DIM, SPC+DIM, SPC+this.idx*DIM+DIM);
+        	g2d.drawLine(SPC, SPC+this.idx*DIM+DIM, SPC+DIM, SPC+this.idx*DIM);
+        }else {
+        	this.fig.paint(g, false);
+        }
     }
 }
