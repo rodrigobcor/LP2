@@ -59,6 +59,10 @@ class ListFrame extends JFrame {
 		buts.add(new Button(1, new Ellipse(0, 0, 0, 0, null)));
 		buts.add(new Button(2, new Arc(0, 0, 0, 0, 30, 240, null)));
 		buts.add(new Button(3, new Triangle(0, 0, 0, 0, null)));
+		buts.add(new Button(5));
+		buts.add(new Button(6));
+		buts.add(new Button(9));
+		buts.add(new Button(10, new Rect(0, 0, 0, 0, Color.LIGHT_GRAY)));
 		repaint();
 
 		this.addKeyListener(new KeyAdapter() {
@@ -67,8 +71,8 @@ class ListFrame extends JFrame {
 				int h = 30;
 				int x = MouseInfo.getPointerInfo().getLocation().x - (w / 2);
 				int y = MouseInfo.getPointerInfo().getLocation().y - (h / 2);
-				int a1 = rand.nextInt(180);
-				int a2 = rand.nextInt(180);
+				int a1 = 30;
+				int a2 = 240;
 				int red = rand.nextInt(255);
 				int green = rand.nextInt(255);
 				int blue = rand.nextInt(255);
@@ -77,7 +81,7 @@ class ListFrame extends JFrame {
 					Rect r = new Rect(x, y, w, h, bcolor);
 					figs.add(r);
 				} else if (evt.getKeyChar() == 'e') {
-					Ellipse e = new Ellipse(x, y, w, h, bcolor);
+					Ellipse e = new Ellipse(x, y, w + 15, h, bcolor);
 					figs.add(e);
 				} else if (evt.getKeyChar() == 'a') {
 					Arc a = new Arc(x, y, w, w, a1, a2, bcolor);
@@ -121,6 +125,9 @@ class ListFrame extends JFrame {
 						focus.w = focus.w - 2;
 						focus.h = focus.h - 2;
 						break;
+					case KeyEvent.VK_ESCAPE:
+						System.exit(0);
+						break;
 					}
 				}
 				for (Figure fig : figs) {
@@ -132,51 +139,74 @@ class ListFrame extends JFrame {
 
 		this.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent evt) {
-				int mx = evt.getX();
-				int my = evt.getY();
+				mx = evt.getX();
+				my = evt.getY();
 				int w = 30;
 				int h = 30;
-				int a1 = rand.nextInt(180);
-				int a2 = rand.nextInt(180);
+				int a1 = 30;
+				int a2 = 240;
 				int red = rand.nextInt(255);
 				int green = rand.nextInt(255);
 				int blue = rand.nextInt(255);
 				Color bcolor = new Color(red, green, blue);
-				int n = figs.size();
-				int i = 0;
-				for (Figure fig : figs) {
-					if (fig.clicked(mx, my)) {
-						focus = fig;
-						figs.set(i, figs.get(n - 1));
-						figs.set(n - 1, focus);
+				if (focus_but != null) {
+					if (focus_but.idx == 0) {
+						Rect r = new Rect(mx - w / 2, my - h / 2, w, h, bcolor);
+						figs.add(r);
+						focus = r;
+						focus_but = null;
+					} else if (focus_but.idx == 1) {
+						Ellipse e = new Ellipse(mx - w / 2, my - h / 2, w + 15, h, bcolor);
+						figs.add(e);
+						focus = e;
+						focus_but = null;
+					} else if (focus_but.idx == 2) {
+						Arc a = new Arc(mx - w / 2, my - h / 2, w, w, a1, a2, bcolor);
+						figs.add(a);
+						focus = a;
+						focus_but = null;
+					} else if (focus_but.idx == 3) {
+						Triangle t = new Triangle(mx - w / 2, my - h / 2, w, h, bcolor);
+						figs.add(t);
+						focus = t;
+						focus_but = null;
 					}
-					i++;
-				}
-				for (Button but : buts) {
-					if (but.clicked(mx, my)) {
-						focus_but = but;
-						System.out.print(focus_but.idx);
-					} else if (focus_but != null) {
-						if (focus_but.idx == 0) {
-							Rect r = new Rect(mx - w / 2, my - h / 2, w, h, bcolor);
-							figs.add(r);
-							focus = r;
-							focus_but = null;
-						} else if (focus_but.idx == 1) {
-							Ellipse e = new Ellipse(mx - w / 2, my - h / 2, w, h, bcolor);
-							figs.add(e);
-							focus = e;
-							focus_but = null;
-						} else if (focus_but.idx == 2) {
-							Arc a = new Arc(mx - w / 2, my - h / 2, w, w, a1, a2, bcolor);
-							figs.add(a);
-							focus = a;
-							focus_but = null;
-						} else if (focus_but.idx == 3) {
-							Triangle t = new Triangle(mx - w / 2, my - h / 2, w, h, bcolor);
-							figs.add(t);
-							focus = t;
-							focus_but = null;
+				} else {
+					int n = figs.size();
+					int i = 0;
+					for (Figure fig : figs) {
+						if (fig.clicked(mx, my)) {
+							focus = fig;
+							figs.set(i, figs.get(n - 1));
+							figs.set(n - 1, focus);
+						}
+						i++;
+					}
+					for (Button but : buts) {
+						if (but.clicked(mx, my)) {
+							focus_but = but;
+							if (focus_but.idx == 5) {
+								focus.x--;
+								focus.y--;
+								focus.w = focus.w + 2;
+								focus.h = focus.h + 2;
+								focus_but = null;
+							} else if (focus_but.idx == 6) {
+								focus.x++;
+								focus.y++;
+								focus.w = focus.w - 2;
+								focus.h = focus.h - 2;
+								focus_but = null;
+							} else if (focus_but.idx == 9) {
+								figs.remove(focus);
+								focus = null;
+								repaint();
+								focus_but = null;
+							}else if (focus_but.idx == 10) {
+								focus = null;
+								figs.clear();
+								focus_but = null;
+							}
 						}
 					}
 				}
@@ -197,18 +227,27 @@ class ListFrame extends JFrame {
 
 		this.addMouseWheelListener(new MouseWheelListener() {
 			public void mouseWheelMoved(MouseWheelEvent evt) {
-				int w = evt.getWheelRotation();
 				if (focus != null) {
-					if (w < 0) {
-						focus.x--;
-						focus.y--;
-						focus.w = focus.w + 2;
-						focus.h = focus.h + 2;
+					if (evt.getWheelRotation() < 0) {
+						if (focus.a1 != 0 && evt.getModifiersEx() == 128) {
+							focus.a1--;
+							focus.a2 = focus.a2 + 2;
+						} else {
+							focus.x--;
+							focus.y--;
+							focus.w = focus.w + 2;
+							focus.h = focus.h + 2;
+						}
 					} else {
-						focus.x++;
-						focus.y++;
-						focus.w = focus.w - 2;
-						focus.h = focus.h - 2;
+						if (focus.a1 != 0 && evt.getModifiersEx() == 128) {
+							focus.a1++;
+							focus.a2 = focus.a2 - 2;
+						} else {
+							focus.x++;
+							focus.y++;
+							focus.w = focus.w - 2;
+							focus.h = focus.h - 2;
+						}
 					}
 					repaint();
 				}
