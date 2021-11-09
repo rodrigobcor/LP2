@@ -8,8 +8,8 @@ public class Rect extends Figure {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Rect(int x, int y, int w, int h, Color bcolor) {
-		super(x, y, w, h, bcolor);
+	public Rect(int x, int y, int w, int h) {
+		super(x, y, w, h);
 	}
 
 	public void paint(Graphics g, boolean focused) {

@@ -9,8 +9,8 @@ public class Arc extends Figure {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Arc(int x, int y, int w, int h, int a1, int a2, Color bcolor) {
-		super(x, y, w, h, bcolor);
+	public Arc(int x, int y, int w, int h, int a1, int a2 ) {
+		super(x, y, w, h);
 		this.a1 = a1;
 		this.a2 = a2;
 	}
