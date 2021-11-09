@@ -7,7 +7,7 @@ public class Triangle extends Figure {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	public Triangle(int x, int y, int w, int h, Color bcolor) {
 		super(x, y, w, h, bcolor);
 	}
@@ -26,5 +26,11 @@ public class Triangle extends Figure {
 		int[] ty = { this.y, this.y + this.h, this.y + this.h };
 		g2d.setColor(this.bcolor);
 		g2d.fillPolygon(tx, ty, 3);
+	}
+	
+	public boolean clicked(int x, int y) {
+		double triangleX1 = this.x + (this.y+this.h-y)/2;
+		double triangleX2 = this.x + this.w - (this.y+this.h-y)/2;
+		return (triangleX1 <= x && x <= triangleX2 && this.y <= y && y <= this.y + this.h);
 	}
 }
