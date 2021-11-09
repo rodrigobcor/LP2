@@ -23,4 +23,8 @@ public class Rect extends Figure {
 		g2d.setColor(this.bcolor);
 		g2d.fillRect(this.x, this.y, this.w, this.h);
 	}
+	
+	public boolean clicked(int x, int y) {
+		return (this.x <= x && x <= this.x + this.w && this.y <= y && y <= this.y + this.h);
+	}
 }
