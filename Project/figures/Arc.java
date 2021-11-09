@@ -26,4 +26,11 @@ public class Arc extends Figure {
 		g2d.setColor(this.bcolor);
 		g2d.fillArc(this.x, this.y, this.w, this.h, this.a1, this.a2);
 	}
+	
+	public boolean clicked(int x, int y) {
+		double dx = Math.abs(x - this.x-w/2);
+        double dy = Math.abs(y - this.y-h/2);
+        double d = dx / this.w + dy / this.h;
+        return d <= 0.65;
+	}
 }
