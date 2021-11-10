@@ -8,8 +8,8 @@ public class Rect extends Figure {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public Rect(int x, int y, int w, int h) {
-		super(x, y, w, h);
+	public Rect(int x, int y) {
+		super(x, y);
 	}
 
 	public void paint(Graphics g, boolean focused) {
@@ -26,5 +26,19 @@ public class Rect extends Figure {
 	
 	public boolean clicked(int x, int y) {
 		return (this.x <= x && x <= this.x + this.w && this.y <= y && y <= this.y + this.h);
+	}
+	
+	public void resize(boolean more) {
+		if (more == true) {
+			this.x--;
+			this.y--;
+			this.w = this.w + 2;
+			this.h = this.h + 2;
+		} else {
+			this.x++;
+			this.y++;
+			this.w = this.w - 2;
+			this.h = this.h - 2;
+		}
 	}
 }

@@ -3,7 +3,7 @@ package ivisible;
 import java.awt.Graphics;
 
 public interface IVisible {
-	public boolean clicked(int x, int y);
+	boolean clicked(int x, int y);
 
-	public void paint(Graphics g, boolean focused);	
+	void paint(Graphics g, boolean focused);	
 }
