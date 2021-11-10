@@ -21,7 +21,8 @@ Menu:
 - Botão 2: Cria uma Elipse
 - Botão 3: Cria um Arco
 - Botão 4: Cria um Triângulo
-- Botão 5: Aumenta a figura em foco
-- Botão 6: Diminui a figura em foco
-- Botão 7: Deleta a figura em foco
-- Botão 8: Deleta todas as figuras
+- Botão 5: Cores: clique pra aumentar de 1 a 5
+- Botão 6: Aumenta a figura em foco
+- Botão 7: Diminui a figura em foco
+- Botão 8: Deleta a figura em foco
+- Botão 9: Deleta todas as figuras
