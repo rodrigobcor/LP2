@@ -3,16 +3,16 @@ import figures.Figure;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class Button implements IVisible {
+class Button implements IVisible {
 	private static int point = 40;
 	private static int size = 25;
 	private static int scale = 4;
 
-	public int getIdx() {
+	int getIdx() {
 		return idx;
 	}
 
-	public Figure getFig() {
+	Figure getFig() {
 		return fig;
 	}
 
