@@ -1,5 +1,5 @@
 interface IStackable {
-    int  size ();       // quantos elementos
-    void push (int v);  // empilha inteiro
-    int  pop  ();       // desempilha inteiro
+    int  size ();
+    void push (int v);
+    int  pop  ();
 }
