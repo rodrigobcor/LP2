@@ -31,7 +31,7 @@ public class Arc extends Figure {
 		double d = dx / this.w + dy / this.h;
 		return d <= 0.7;
 	}
-	
+
 	public void resize(boolean more) {
 		if (more == true) {
 			this.x--;
@@ -43,6 +43,14 @@ public class Arc extends Figure {
 			this.y++;
 			this.w = this.w - 2;
 			this.h = this.h - 2;
+		}
+		if (this.w < 1) {
+			this.w=1;
+			this.x--;
+		}
+		if (this.h < 1) {
+			this.h=1;
+			this.y--;
 		}
 	}
 }

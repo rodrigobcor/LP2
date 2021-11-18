@@ -194,15 +194,21 @@ class ListFrame extends JFrame {
 									Figure.setBlue(51);
 								}
 								focus_but = null;
-							} else if (focus != null && focus_but.getIdx() == 6) {
-								focus.resize(true);
+							} else if (focus_but.getIdx() == 6) {
+								if (focus != null) {
+									focus.resize(true);
+								}
 								focus_but = null;
-							} else if (focus != null && focus_but.getIdx() == 7) {
-								focus.resize(false);
+							} else if (focus_but.getIdx() == 7) {
+								if (focus != null) {
+									focus.resize(false);
+								}
 								focus_but = null;
-							} else if (focus != null && focus_but.getIdx() == 9) {
-								figs.remove(focus);
-								focus = null;
+							} else if (focus_but.getIdx() == 9) {
+								if (focus != null) {
+									figs.remove(focus);
+									focus = null;
+								}
 								focus_but = null;
 							} else if (focus_but.getIdx() == 10) {
 								focus = null;
@@ -218,7 +224,9 @@ class ListFrame extends JFrame {
 
 		this.addMouseMotionListener(new MouseMotionAdapter() {
 			public void mouseDragged(MouseEvent evt) {
-				if (focus != null) {
+				mx = evt.getX();
+				my = evt.getY();
+				if (focus != null && focus.clicked(mx, my) == true) {
 					int dx = evt.getX() - (focus.getW() / 2);
 					int dy = evt.getY() - (focus.getH() / 2);
 					focus.drag(dx, dy);

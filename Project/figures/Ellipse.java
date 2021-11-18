@@ -44,5 +44,13 @@ public class Ellipse extends Figure {
 			this.w = this.w - 3;
 			this.h = this.h - 2;
 		}
+		if (this.w < 1) {
+			this.w=2;
+			this.x -= 2;
+		}
+		if (this.h < 1) {
+			this.h=1;
+			this.y--;
+		}
 	}
 }

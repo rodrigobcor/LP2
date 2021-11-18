@@ -40,5 +40,13 @@ public class Rect extends Figure {
 			this.w = this.w - 2;
 			this.h = this.h - 2;
 		}
+		if (this.w < 1) {
+			this.w=1;
+			this.x--;
+		}
+		if (this.h < 1) {
+			this.h=1;
+			this.y--;
+		}
 	}
 }

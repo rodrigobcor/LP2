@@ -26,10 +26,20 @@ public abstract class Figure implements IVisible, Serializable {
 	}
 
 	public void drag(int dx, int dy) {
+//		if (this.x < fx) {
+//			this.x -= fx - this.x;
+//		} else if (this.x > fx) {
+//			this.x += this.x - fx;
+//		}
+//		if (this.y < fy) {
+//			this.y -= fy - this.y;
+//		} else if (this.y > fy) {
+//			this.y += this.y - fy;
+//		}
 		this.x = dx;
 		this.y = dy;
 	}
-	
+
 	public abstract void resize(boolean more);
 
 	public int getX() {
@@ -79,7 +89,7 @@ public abstract class Figure implements IVisible, Serializable {
 	public void setA2(int a2) {
 		this.a2 = a2;
 	}
-	
+
 	public static int getRed() {
 		return red;
 	}
@@ -111,5 +121,5 @@ public abstract class Figure implements IVisible, Serializable {
 	public void setBcolor(Color bcolor) {
 		this.bcolor = bcolor;
 	}
-	
+
 }
