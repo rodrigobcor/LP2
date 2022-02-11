@@ -1,4 +1,4 @@
-Este é um projeto de editor gráfico simples, onde é possível inserir figuras predefinidas na tela e editá-las.
+Este é um projeto de editor gráfico simples, onde é possível inserir na tela figuras predefinidas e editá-las.
 
 Comandos:
 
